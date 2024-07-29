@@ -13,16 +13,6 @@ const router = createRouter({
       name:'city',
       component:()=>import('../views/CityView/CityView.vue')
     },
-    {
-      path:'/city_v1',
-      name:'city_v1',
-      component:()=>import('../views/CityView/CityView_v1.vue')
-    },
-    {
-      path:'/test',
-      name:'test',
-      component:()=>import('../views/CityView/test.vue')
-    }
   ]
 })
 
