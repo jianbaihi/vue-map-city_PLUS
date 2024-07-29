@@ -45,42 +45,20 @@
             {{ city.name }}
           </button>
         </div>
-        <div class="van-index-bar">
-          <div class="van-index-bar__sidebar">
-            <span
-              class="van-index-bar__index"
-              v-for="(cities, key) in cityList"
-              :key="key"
-              :class="{ active: key == currentKey }"
-              @click="currentKey = key"
-            >
-              <a :href="`#${key}`">
-                {{ key }}
-              </a>
-            </span>
-          </div>
+        <van-index-bar>
           <div v-for="(cities, key) in cityList" :key="key">
-            <div>
-              <div
-                class="van-index-anchor"
-                :id="key"
-                :class="{ 'van-index-anchor-active': key == currentKey }"
-              >
-                {{ key }}
-              </div>
-            </div>
-            <div
-              class="van-cell"
-              v-for="(city, index) in cities"
+            <van-index-anchor :index="key" />
+            <div 
+              v-for="(city, index) in cities" 
               :key="city.id"
-              @click="handleClickLocation(city.name)"
-            >
-              <div class="van-cell__title">
-                <span>{{ city.name }}</span>
-              </div>
+              >
+                <van-cell 
+                  :title=city.name 
+                  @click="handleClickLocation(city.name)"
+                />
             </div>
           </div>
-        </div>
+        </van-index-bar>
       </div>
     </div>
   </div>
